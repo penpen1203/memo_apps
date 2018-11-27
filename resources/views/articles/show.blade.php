@@ -1,0 +1,14 @@
+@extends('layout')
+@section('content')
+<h1>{{$article->title}}</h1>
+<hr>
+<article>
+    <div class="body">{{$article->body}}</div>
+    <div class="published_at">{{$article->published_at->format('Y-m-d')}}</div>
+</article>
+<br>
+<div>
+    <a href="{{ action('ArticlesController@edit',[$article->id]) }}"　class="btn btn-primary">編集</a>
+    <a href="{{ action('ArticlesController@index')}}" calss="btn btn-secondary float-right">一覧へ戻る</a>
+</div>
+@endsection
