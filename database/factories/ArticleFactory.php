@@ -9,5 +9,8 @@ $factory->define(App\Article::class, function (Faker $faker) {
         'body' => $faker->paragraph(),
         'published_at' => Carbon::today(),
         //
+        'user_id' => function () {
+            return factory(App\User::class)->create()->id;
+        },
     ];
 });

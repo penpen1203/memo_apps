@@ -2,7 +2,9 @@
 @section('content')
     <h1>Articles</h1>
     <hr>
-    <a href="articles/create" class="btn btn-primary float-right">New Article</a>
+    @auth
+        <a href={{route('articles.create')}} class="btn btn-primary float-right">New Article</a>
+    @endauth
     @foreach ($articles as $article)
         <article>
             <h2>
