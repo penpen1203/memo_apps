@@ -80,8 +80,8 @@ class ArticlesController extends Controller
 
     public function tag($id)
     {
-        $tag = Tag::with('id', $id)->get();
-        $articles = Article::with('tags', $id)->get();
+        $tag = Tag::find($id);
+        $articles = $tag->articles()->get();
 
         return view('articles.tag', compact('articles'));
 
