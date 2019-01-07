@@ -25,4 +25,9 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
+    }
 }
