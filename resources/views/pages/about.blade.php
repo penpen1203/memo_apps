@@ -1,4 +1,4 @@
 @extends('layout')
 @section('content')
-<h1>About me!{{$first_name}} {{$last_name}}<h1>
+<h1>About me!<h1>
 @endsection

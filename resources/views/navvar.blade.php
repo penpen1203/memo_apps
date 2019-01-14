@@ -27,14 +27,14 @@
         <ul class="navbar-nav">
           @guest
             <li class="nav-item">
-              <a class="nav-link" href="{{route('login')}}">Login</a>
+              <a class="nav-link" href="{{route('login')}}">ログイン</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('register')}}">Register</a>
+              <a class="nav-link" href="{{route('register')}}">ユーザ登録</a>
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard') }}">MyPage</a>
+              <a class="nav-link" href="{{ route('dashboard') }}">マイページ</a>
             </li>
 
           <!-- ドロップダウンメニュー -->
