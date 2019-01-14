@@ -30,3 +30,4 @@ Route::resource('articles', 'ArticlesController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('articles/tag/{id}', 'ArticlesController@tag')->name('articles.tag');

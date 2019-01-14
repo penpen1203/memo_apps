@@ -14,7 +14,7 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show', 'tag']);
     }
     public function index()
     {
@@ -76,5 +76,14 @@ class ArticlesController extends Controller
         $article->delete();
         \Flash::success('記事を削除しました');
         return redirect()->route('articles.index')->with('message', '記事を削除しました');
+    }
+
+    public function tag($id)
+    {
+        $tag = Tag::find($id);
+        $articles = $tag->articles()->get();
+
+        return view('articles.tag', compact('articles'));
+
     }
 }
