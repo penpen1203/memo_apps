@@ -16,8 +16,8 @@ class CreateFavoritesTable extends Migration
         Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('user_id');
-            $table->integer('article_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('article_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelte('cascade');
             $table->foreign('article_id')->references('id')->on('articles')->onDelte('cascade');

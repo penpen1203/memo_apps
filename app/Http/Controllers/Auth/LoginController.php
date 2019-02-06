@@ -28,7 +28,8 @@ class LoginController extends Controller
     // protected $redirectTo = '/home';
     protected function redirectTo()
     {
-        return route('dashboard');
+        \Flash::success('ログインしました');
+        return route('home');
     }
 
     /**

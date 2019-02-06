@@ -26,7 +26,8 @@ class ArticleRequest extends FormRequest
         return [
             'title' => 'required|min:3',
             'body' => 'required',
-            'published_at' => 'required|date'
+            'published_at' => 'required|date',
+            'image' => 'required|image',
             //
         ];
     }

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navvar-container">
   <div class="container">
     <!-- ブランド表示 -->
-    <a class="navbar-brand" href="{{ route('home') }}">My Blog</a>
+    <a class="navbar-brand" href="{{ route('home') }}">Diary App</a>
 
     <!-- スマホやタブレットで表示した時のメニューボタン -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,13 +13,10 @@
       <!-- 左寄せメニュー -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('home') }}">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{ route('about') }}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+          <a class="nav-link" href="{{ route('contact') }}">お問い合わせ</a>
         </li>
       </ul>
 
@@ -33,12 +30,12 @@
               <a class="nav-link" href="{{route('register')}}">ユーザ登録</a>
             </li>
           @else
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard') }}">マイページ</a>
+            <li class="nav-item nav-right-item">
+              <a class="nav-link" href="{{ route('home') }}">マイページ</a>
             </li>
 
           <!-- ドロップダウンメニュー -->
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown nav-right-item">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{-- ⑤ --}}
               {{ Auth::user()->name }} <span class="caret"></span>
@@ -49,7 +46,7 @@
               <a class="dropdown-item" href="#"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
               >
-                Logout
+                ログアウト
               </a>
 
               {{-- ⑦ --}}
@@ -57,6 +54,14 @@
                 @csrf
               </form>
             </div>
+          </li>
+          <li>
+            <a class="nav-item nav-link nav-link-extend" href="{{route('articles.create')}}">
+              <button type="button" class="btn-sm btn-success btn-extend">
+                <span><i class="fas fa-pencil-alt"></i></span>
+                <span>投稿</span>
+              </button>
+            </a>
           </li>
           @endguest
       </ul>
