@@ -19,7 +19,7 @@ class ArticlesController extends Controller
     public function index()
     {
         // $articles = Article::all();
-        $articles = Article::latest('created_at')->paginate(5);
+        $articles = Article::latest('published_at')->latest('created_at')->published()->get();
         return view('articles.index', compact('articles'));
     }
     public function create()
@@ -38,11 +38,9 @@ class ArticlesController extends Controller
         // Article::create($request->validated());
         $article = Auth::user()->articles()->create($request->validated());
         $article->tags()->attach($request->input('tags'));
-        if (!empty($request->file('image'))) {
-            $path = 'app/' . $request->file('image')->store('public/images');
-            $article->image = basename($path);
-            $article->save();
-        }
+        $path = 'app/' . $request->file('image')->store('public/images');
+
+        $article->image = basename($path);
 
 
         \Flash::success('記事を作成しました');
@@ -73,12 +71,6 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
         $article->update($request->validated());
         $article->tags()->sync($request->input('tags'));
-        if (!empty($request->file('image'))) {
-            $path = 'app/' . $request->file('image')->store('public/images');
-            $article->image = basename($path);
-            $article->save();
-        }
-
         \Flash::success('記事を更新しました');
         return redirect()->route('articles.index');
     }
@@ -93,9 +85,9 @@ class ArticlesController extends Controller
     public function tag($id)
     {
         $tag = Tag::find($id);
-        $articles = $tag->articles()->latest('created_at')->paginate(5);
+        $articles = $tag->articles()->get();
 
-        return view('articles.tag', compact('articles', 'tag'));
+        return view('articles.tag', compact('articles'));
 
     }
 }

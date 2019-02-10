@@ -1,11 +1,12 @@
     <div class="form-group">
         {!! Form::label('image','画像:') !!}
-        @if(isset($image))
+        @if(isset($title))
         {!! Form::file('image',$image,['class'=>'form-control']) !!}
         @else
         {!! Form::file('image',null,['class'=>'form-control']) !!}
         @endif
     </div>
+
     <div class="form-group">
         {!! Form::label('title','タイトル') !!}
         @if(isset($title))

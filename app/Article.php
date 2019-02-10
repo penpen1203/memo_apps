@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'body', 'image', ];
+    protected $fillable = ['title', 'body', 'image', 'published_at'];
 
     //日付ミューテータを使う
     protected $dates = ['published_at'];

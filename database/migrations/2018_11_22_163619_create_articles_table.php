@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->text('body');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelte('cascade');
