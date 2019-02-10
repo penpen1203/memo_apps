@@ -6,6 +6,16 @@ body {
 h1 {
   width: 36rem;
   margin: 0 auto;
+  word-break: break-all;
+  font-weight: 700;
+}
+
+h5 {
+  font-weight: 700;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .nav-right-item {
@@ -18,7 +28,32 @@ h1 {
 .card-item {
   width: 36rem;
   margin: 1rem auto;
-  height: 25rem;
+  min-height: 25rem;
+  max-height: 40rem;
+}
+
+.card-title {
+  margin: 1.5rem 0;
+}
+
+.card-title-link {
+  color: #343a40;
+}
+.card-title-link:hover {
+  color: #343a40;
+}
+
+.card-text {
+  height: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-image {
+  width: 574px;
+  margin-left: -1.25rem;
+  height: 250px;
+  margin-top: 0.5rem;
 }
 
 .form-group {
@@ -33,11 +68,22 @@ h1 {
 .article-container {
   width: 36rem;
   margin: 0 auto;
+  min-height: 25rem;
+}
+
+.article-image {
+  width: 576px;
+  height: 300px;
+  margin-top: 1rem;
+}
+
+.article-author {
+  float: left;
 }
 
 .article-title {
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.02rem;
   font-size: 2.25rem;
 }
@@ -45,4 +91,27 @@ h1 {
 .article-content {
   margin-top: 2rem;
   font-size: 1.2rem;
+  /* min-height: 25rem; */
+  float: left;
+}
+
+.paginate-extend {
+  width: 36rem;
+  margin: 2rem auto;
+}
+
+.container-button {
+  text-align: right;
+  /* margin-top: 6rem; */
+}
+
+.button-edit {
+  margin-right: 1.1rem;
+}
+
+.article-edit-image {
+  width: 576px;
+  height: 300px;
+  margin: auto;
+  display: block;
 }
