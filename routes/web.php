@@ -17,6 +17,7 @@
 // });
 Route::get('/', 'ArticlesController@index')->name('home');
 Route::get('contact', 'PagesController@contact')->name('contact');
+Route::post('contact', 'PagesController@send')->name('contact.send');
 Route::get('about', 'PagesController@about')->name('about');
 // Route::get('articles', 'ArticlesController@index')->name('articles.index');
 // Route::get('articles/create', 'ArticlesController@create')->name('articles.create');

@@ -1,14 +1,12 @@
 @extends('layout')
 @section('content')
-    <h1>Articles</h1>
+    <h1>記事一覧</h1>
     <hr>
-    @auth
-        <a href={{route('articles.create')}} class="btn btn-primary float-right">New Article</a>
-    @endauth
-    <div class="container-flex" style="display: flex;flex-wrap: wrap;">
+    <div class="container-flex">
     @foreach ($articles as $article)
-    <div class="card" style="width: 18rem;">
+    <div class="card card-item">
         <div class="card-body">
+            <img src="/storage/images/{{$article->image}}" alt="">
             <h5 class="card-title">{{$article->title}}</h5>
             <p class="card-text">{{$article->body}}</p>
             <div class="bottom-container" style="position: absolute;bottom: 0.6rem;">

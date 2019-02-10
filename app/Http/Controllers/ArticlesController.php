@@ -38,6 +38,10 @@ class ArticlesController extends Controller
         // Article::create($request->validated());
         $article = Auth::user()->articles()->create($request->validated());
         $article->tags()->attach($request->input('tags'));
+        $path = 'app/' . $request->file('image')->store('public/images');
+
+        $article->image = basename($path);
+
 
         \Flash::success('記事を作成しました');
         return redirect()->route('articles.index');
