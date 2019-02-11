@@ -39,7 +39,7 @@ class ArticlesController extends Controller
         $article = Auth::user()->articles()->create($request->validated());
         $article->tags()->attach($request->input('tags'));
         if (!empty($request->file('image'))) {
-            $path = 'app/' . $request->file('image')->store('public/images');
+            $path = 'app/' . $request->file('image')->store('public/images', 's3');
             $article->image = basename($path);
             $article->save();
         }

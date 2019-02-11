@@ -12,4 +12,13 @@
 {!! Form::model('article',['method'=>'PATCH','route'=>['articles.update',$article->id ],'files'=>true])!!}
     @include('articles.form',['title'=>$article->title,'body'=>$article->body,'submitButton'=>'編集する'])
 {!! Form::close() !!}
+{{-- @unless($article->tags->isEmpty())
+    @foreach($article->tags as $tag)
+        @if({{$tag->name}}==="hobby")
+
+        #{{$tag->name}}
+    @endforeach
+@endunless --}}
+
+
 @endsection
