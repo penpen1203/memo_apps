@@ -8,6 +8,7 @@ use App\Article;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class ArticlesController extends Controller
@@ -38,8 +39,13 @@ class ArticlesController extends Controller
         // Article::create($request->validated());
         $article = Auth::user()->articles()->create($request->validated());
         $article->tags()->attach($request->input('tags'));
+        $options = [
+            'disk' => 's3',
+            'visibility' => 'public',
+            'mimetype' => 'image/jpeg'
+        ];
         if (!empty($request->file('image'))) {
-            $path = 'app/' . $request->file('image')->store('public/images', 's3');
+            $path = 'app/' . $request->file('image')->store('public/images', $options);
             $article->image = basename($path);
             $article->save();
         }
@@ -73,8 +79,14 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
         $article->update($request->validated());
         $article->tags()->sync($request->input('tags'));
+        $options = [
+            'disk' => 's3',
+            'visibility' => 'public',
+            'mimetype' => 'image/jpeg'
+        ];
+
         if (!empty($request->file('image'))) {
-            $path = 'app/' . $request->file('image')->store('public/images');
+            $path = 'app/' . $request->file('image')->store('public/images', $options);
             $article->image = basename($path);
             $article->save();
         }

@@ -12,7 +12,7 @@
             </div>
             @if(isset($article->image))
                 <a href="{{url('articles',$article->id)}}" class="card-image-link">
-                    <img src="storage/images/{{$article->image}}" alt="" class="card-image">
+                    <img src="https://s3.amazonaws.com/first-laravel-app/public/images/{{$article->image}}" alt="" class="card-image">
                 </a>
             @else
                 <img src="storage/images/{{$article->image}}" alt="" style="display:none;">

@@ -2,7 +2,7 @@
 @section('content')
 <div class="article-container">
     @if(isset($article->image))
-        <img src="{{asset('storage/images/'.$article->image)}}" alt="" class="article-image">
+        <img src="https://s3.amazonaws.com/first-laravel-app/public/images/{{$article->image}}" alt="" class="article-image">
     @else
         <img src="{{asset('storage/images/'.$article->image)}}" alt="" style="display:none;">
     @endif
