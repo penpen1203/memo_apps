@@ -17,13 +17,39 @@
             <h6>{{$article->created_at->format('Y-m-d')}}</h6>
         </div>
         @auth
-        <div class="container-button">
-            <a href="{{ action('ArticlesController@edit',[$article->id]) }}" class='button-edit'>
-                <button class="btn btn-primary" >編集
+            @if($user->id === $article->user->id)
+            <div class="container-button">
+                <a href="{{ action('ArticlesController@edit',[$article->id]) }}" class='button-edit'>
+                    <button class="btn btn-primary" >編集
+                    </button>
+                </a>
+                <!-- ボタン -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demoNormalModal">
+                    削除
                 </button>
-            </a>
-            {!! delete_form(['articles.destroy',$article->id]) !!}
-        </div>
+
+                <!-- モーダルダイアログ -->
+                <div class="modal fade" id="demoNormalModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="demoModalTitle">記事の削除</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                本当に削除してよろしいですか。
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                {!! delete_form(['articles.destroy',$article->id]) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
         @endauth
     </div>
     <div class="article-content">
