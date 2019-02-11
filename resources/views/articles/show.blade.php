@@ -64,7 +64,7 @@
                     @endforeach
             @endunless
 
-            <a href="{{url('articles',$article->id-1)}}" class="link">前の記事</a>
+            {{-- <a href="{{url('articles',$article->id-1)}}" class="link">前の記事</a> --}}
 
 
             {{-- <a href="{{ action('ArticlesController@index')}}" calss="btn btn-secondary float-right">一覧へ戻る</a> --}}
