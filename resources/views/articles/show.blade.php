@@ -14,7 +14,7 @@
     <div class="container-top">
         <div class="article-author">
             <h6>{{$article->user->name}}</h6>
-            <h6>{{$article->created_at->format('Y-m-d')}}</h6>
+            <h6>{{$article->created_at->format('Y/m/d H:i')}}</h6>
         </div>
         @auth
             @if($user->id === $article->user->id)
@@ -63,6 +63,9 @@
                     </a>
                     @endforeach
             @endunless
+
+            <a href="{{url('articles',$article->id-1)}}" class="link">前の記事</a>
+
 
             {{-- <a href="{{ action('ArticlesController@index')}}" calss="btn btn-secondary float-right">一覧へ戻る</a> --}}
         </div>

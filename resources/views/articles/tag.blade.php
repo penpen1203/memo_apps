@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="card-article-author">
                 <h6>{{$article->user->name}}</h6>
-                <h6>{{$article->created_at->format('Y-m-d')}}</h6>
+                <h6>{{$article->created_at->format('Y/m/d H:i')}}</h6>
             </div>
             @if(isset($article->image))
                 <a href="{{url('articles',$article->id)}}" class="card-image-link">

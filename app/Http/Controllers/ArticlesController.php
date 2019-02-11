@@ -23,6 +23,7 @@ class ArticlesController extends Controller
         $articles = Article::latest('created_at')->paginate(5);
         return view('articles.index', compact('articles'));
     }
+
     public function create()
     {
         $tag_list = Tag::pluck('name', 'id');
