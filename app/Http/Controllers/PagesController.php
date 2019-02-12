@@ -24,7 +24,7 @@ class PagesController extends Controller
             'body' => 'required'
         ];
         $this->validate($request, $rules);
-        $to = 'f969ed5103-2ba634@inbox.mailtrap.io';
+        $to = 'hamada50154@gmail.com';
         $data = $request->only('email', 'title', 'body');
         Mail::to($to)->send(new Contact($data));
 
