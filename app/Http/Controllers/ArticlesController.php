@@ -66,6 +66,15 @@ class ArticlesController extends Controller
         $user = Auth::user();
         return view('articles.show', compact('article', 'user'));
     }
+
+    // public function prev(Article $article)
+    // {
+    //     $user = Auth::user();
+
+        
+    //     return view('articles.show', compact('article', 'user'));
+
+    // }
     //
 
     public function edit(Article $article)
@@ -112,4 +121,13 @@ class ArticlesController extends Controller
         return view('articles.tag', compact('articles', 'tag'));
 
     }
+
+    public function mypage()
+    {
+        // $articles = Article::all();
+        $user = Auth::user();
+        $articles = $user->articles()->latest('created_at')->paginate(5);
+        return view('articles.mypage', compact('articles', 'user'));
+    }
+
 }

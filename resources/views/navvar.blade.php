@@ -30,10 +30,6 @@
               <a class="nav-link" href="{{route('register')}}">ユーザ登録</a>
             </li>
           @else
-            <li class="nav-item nav-right-item">
-              <a class="nav-link" href="{{ route('home') }}">マイページ</a>
-            </li>
-
           <!-- ドロップダウンメニュー -->
           <li class="nav-item dropdown nav-right-item">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +44,10 @@
               >
                 ログアウト
               </a>
+              <a class="dropdown-item" href="{{ route('mypage') }}">
+                マイページ
+              </a>
+
 
               {{-- ⑦ --}}
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
