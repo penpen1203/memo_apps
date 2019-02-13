@@ -47,7 +47,7 @@ a:hover {
   height: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
 }
 
 .card-image {

@@ -20,7 +20,11 @@
             <a href="{{url('articles',$article->id)}}" class="card-title-link">
                 <h5 class="card-title">{{$article->title}}</h5>
             </a>
-            <p class="card-text">{!! nl2br(e($article->body)) !!}</p>
+            @if(mb_strlen($article->body)>200)
+                <p class="card-text">{!! mb_substr(nl2br(e($article->body)),0,200) !!}...</p>
+            @else
+                <p class="card-text">{!! nl2br(e($article->body)) !!}</p>
+            @endif
             <div class="bottom-container" style="position: absolute;bottom: 0.6rem;">
                 <a href="{{url('articles',$article->id)}}" class="card-link">詳細</a>
                 @unless($article->tags->isEmpty())
