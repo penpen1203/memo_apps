@@ -47,6 +47,7 @@ a:hover {
   height: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 10rem;
 }
 
 .card-image {
@@ -63,6 +64,11 @@ a:hover {
 
 .btn-extend {
   cursor: pointer;
+  /* background-color: #fff;
+  color: #6c757d;
+  border-color: #6c757d; */
+  width: 5rem;
+  height: 1.9rem;
 }
 
 .article-container {
@@ -116,4 +122,12 @@ a:hover {
   height: 300px;
   margin: auto;
   display: block;
+}
+
+.form-content-label {
+  float: left;
+}
+
+.form-count-container {
+  text-align: right;
 }

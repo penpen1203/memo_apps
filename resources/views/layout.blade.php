@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/app.js" defer></script>
+    <script src="/js/function.js" defer></script>
     <title>MySite</title>
 </head>
 <body>
