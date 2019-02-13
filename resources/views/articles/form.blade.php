@@ -15,7 +15,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('body','本文:',['class'=>'form-content-label']) !!}
+        {!! Form::label('body','本文',['class'=>'form-content-label']) !!}
         <div class="form-count-container">
         </div>
         @if(isset($body))
@@ -33,7 +33,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('tags','Tags:') !!}
+        {!! Form::label('tags','タグ') !!}
         {!! Form::select('tags[]',$tag_list,null,['class'=>'form-control','multiple']) !!}
     </div>
     <div class="form-group">
